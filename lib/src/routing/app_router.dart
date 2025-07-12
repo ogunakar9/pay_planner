@@ -5,6 +5,7 @@ import '../sample_feature/sample_item_list_view.dart';
 import '../sample_feature/sample_item_details_view.dart';
 import '../settings/settings_view.dart';
 import '../settings/settings_controller.dart';
+import '../features/payments/add_payment_view.dart';
 
 // Placeholders for Subscriptions and Analysis
 class SubscriptionsView extends StatelessWidget {
@@ -104,9 +105,12 @@ GoRouter createRouter(SettingsController settingsController) {
           ),
           GoRoute(
             path: '/payments',
-            pageBuilder: (context, state) =>
-                const NoTransitionPage(child: SampleItemListView()),
+            pageBuilder: (context, state) => const NoTransitionPage(child: SampleItemListView()),
             routes: [
+              GoRoute(
+                path: 'add',
+                pageBuilder: (context, state) => const NoTransitionPage(child: AddPaymentView()),
+              ),
               GoRoute(
                 path: 'detail',
                 pageBuilder: (context, state) =>
